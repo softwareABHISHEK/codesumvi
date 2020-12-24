@@ -6,6 +6,7 @@ def press(num):
 
     strvar.set(expression)
 
+
 expression=""
 def clear():
     global expression
@@ -14,16 +15,23 @@ def clear():
 expression=""
 def equal():
     global expression
-    pass
+    apple = strvar.get()
+    store=eval(apple)
+
+
+    strvar.set(store)
+
 
 calc=tkinter.Tk()
-calc.title("CALCULATOR MADE BY ABHI")
+
+calc.title("CALCULATOR")
 calc.geometry("700x800")
-label=tkinter.Label(calc,text="WELCOME TO ABHI CALCULATOR'S WORLD ", bg="red",padx=100,pady=10 ,bd=10).pack(side="top")
+label=tkinter.Label(calc,text="WELCOME TO ABHI CALCULATOR'S WORLD ", bg="red",padx=100,pady=10 ,bd=10).pack(side="top",fill="x")
 strvar=tkinter.StringVar()
 strvar.set(0)
 
 e1=tkinter.Entry(calc,textvariable=strvar,bd=5,font="Lucida 60 bold").pack(fill="x",ipady=10)
+
 topframe=tkinter.Frame(calc,bd=20)
 topframe.pack(side="top")
 middleframe=tkinter.Frame(calc,bd=20)
@@ -40,7 +48,7 @@ rightbottom1=tkinter.Frame(bottom1frame,bd=20)
 rightbottom1.pack(side="right")
 rightbottom2=tkinter.Frame(bottom2frame,bd=20)
 rightbottom2.pack(side="right")
-btn1=tkinter.Button(topframe,text=1,bd=10 ,fg="black",bg="blue" ,padx=20 ,pady=10,activebackground="green",activeforeground="yellow" ,command=lambda:press(1)).pack(side="left")
+btn1=tkinter.Button(topframe,text=1 ,bd=10,fg="black",bg="blue" ,padx=20 ,pady=10,activebackground="green",activeforeground="yellow" ,command=lambda:press(1)).pack(side="left")
 btn2=tkinter.Button(topframe,text=2,bd=10 ,fg="black",bg="blue",padx=20 ,pady=10 ,activebackground="green",activeforeground="yellow" ,command=lambda:press(2)).pack(side="left")
 btn3=tkinter.Button(topframe,text=3,bd=10 ,fg="black",bg="blue" ,padx=20 ,pady=10 ,activebackground="green",activeforeground="yellow" ,command=lambda:press(3)).pack(side="left")
 btn4=tkinter.Button(middleframe,text=4,bd=10 ,fg="black",bg="blue" ,padx=20 ,pady=10 ,activebackground="green",activeforeground="yellow", command=lambda:press(4)).pack(side="left")
@@ -53,7 +61,7 @@ btn0=tkinter.Button(bottom2frame,text=0,bd=10 ,fg="black",bg="blue" ,padx=60 ,pa
 btnstart=tkinter.Button(righttop,text="CE",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=clear).pack(side="right")
 btnplus=tkinter.Button(righttop,text="+",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("+")).pack(side="right")
 btnminus=tkinter.Button(rightmiddle,text="-",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("-")).pack(side="right")
-btnmultiply=tkinter.Button(rightmiddle,text="x",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("x")).pack(side="right")
+btnmultiply=tkinter.Button(rightmiddle,text="x",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("*")).pack(side="right")
 btndivide=tkinter.Button(rightbottom1,text="/",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("/")).pack(side="right")
 btnpercentage=tkinter.Button(rightbottom1,text="%",bd=10 ,fg="black",bg="yellow" ,padx=30 ,pady=10 ,activebackground="white",activeforeground="black", command=lambda:press("%")).pack(side="right")
 btnequals=tkinter.Button(rightbottom2,text="=",bd=10 ,fg="black",bg="yellow" ,padx=60 ,pady=10 ,activebackground="white",activeforeground="black", command=equal).pack(side="right")
